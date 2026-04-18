@@ -11,3 +11,8 @@ export interface QuizState {
 }
 
 export type Theme = 'light' | 'dark'
+
+export type QuizMode =
+  | { type: 'full'; practice?: boolean }
+  | { type: 'quick'; count: number; practice?: boolean }
+  | { type: 'week'; week: number; practice?: boolean }

@@ -18,6 +18,158 @@
 body { margin: 0; }
 #root { display: block; }
 
+/* ── Quiz menu ──────────────────────────────────────────── */
+.menu-page { min-height: 100vh; background: var(--background); }
+
+.menu-header {
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-small);
+}
+.menu-header-inner {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.practice-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: color var(--t), border-color var(--t), background var(--t);
+}
+.practice-toggle:has(input:checked) {
+  color: var(--q-accent);
+  border-color: var(--q-accent);
+  background: var(--q-accent-bg);
+}
+.practice-toggle input { accent-color: var(--q-accent); }
+
+.menu-main {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.menu-section { display: flex; flex-direction: column; gap: 12px; }
+
+.menu-section-title { font-size: 15px; font-weight: 700; color: var(--foreground); margin: 0; }
+.menu-section-sub   { font-size: 13px; color: var(--muted-foreground); margin: 0; }
+
+/* Full quiz card */
+.mode-card-full {
+  width: 100%;
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  border: 2px solid var(--q-accent);
+  background: var(--q-accent-bg);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: filter var(--t);
+}
+.mode-card-full:hover { filter: brightness(0.96); }
+
+/* Quick quiz cards */
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.mode-card-quick {
+  padding: 16px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color var(--t), background var(--t);
+}
+.mode-card-quick:hover { border-color: var(--q-accent); background: var(--q-accent-bg); }
+
+.mode-card-title { font-size: 15px; font-weight: 700; color: var(--foreground); }
+.mode-card-desc  { font-size: 12px; color: var(--muted-foreground); }
+.mode-card-badge {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--q-accent);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* Week grid */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.week-card {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color var(--t), background var(--t);
+}
+.week-card:hover { border-color: var(--q-accent); background: var(--q-accent-bg); }
+
+.week-card-number { font-size: 12px; font-weight: 700; color: var(--q-accent); }
+.week-card-label  { font-size: 12px; color: var(--muted-foreground); line-height: 1.4; }
+
+/* Back button */
+.btn-back {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color var(--t), border-color var(--t);
+  white-space: nowrap;
+}
+.btn-back:hover { color: var(--foreground); border-color: var(--foreground); }
+
+@media (max-width: 600px) {
+  .mode-grid  { grid-template-columns: repeat(2, 1fr); }
+  .week-grid  { grid-template-columns: repeat(2, 1fr); }
+  .menu-main  { padding: 20px 12px 50px; }
+}
+
 /* ── Header ─────────────────────────────────────────────── */
 .header {
   position: sticky;

@@ -7,14 +7,16 @@ interface QuestionCardProps {
   question: Question
   selected: string | null
   submitted: boolean
+  isPractice?: boolean
   onAnswer: (idx: number, choice: string) => void
 }
 
-export const QuestionCard = memo(function QuestionCard({ index, question, selected, submitted, onAnswer }: QuestionCardProps) {
+export const QuestionCard = memo(function QuestionCard({ index, question, selected, submitted, isPractice, onAnswer }: QuestionCardProps) {
   const correct = question.a
+  const revealed = submitted || (isPractice && selected !== null)
 
   let cardState = ''
-  if (submitted) {
+  if (revealed) {
     cardState = selected === correct ? 'card-correct' : selected === null ? 'card-skip' : 'card-wrong'
   }
 
@@ -22,7 +24,7 @@ export const QuestionCard = memo(function QuestionCard({ index, question, select
     <div className={`question-card ${cardState}`}>
       <div className="question-header">
         <span className="q-number">Q{index + 1}</span>
-        {submitted && (
+        {revealed && (
           <span className={`q-badge ${selected === correct ? 'badge-correct' : selected === null ? 'badge-skip' : 'badge-wrong'}`}>
             {selected === correct ? '✓ Correct' : selected === null ? '— Skipped' : '✗ Wrong'}
           </span>
@@ -32,7 +34,7 @@ export const QuestionCard = memo(function QuestionCard({ index, question, select
       <div className="options">
         {question.o.map((opt, j) => {
           let cls = 'option'
-          if (submitted) {
+          if (revealed) {
             if (opt === correct) cls += ' opt-correct'
             else if (opt === selected) cls += ' opt-wrong'
             else cls += ' opt-dim'
@@ -44,7 +46,7 @@ export const QuestionCard = memo(function QuestionCard({ index, question, select
               key={opt}
               className={cls}
               onClick={() => onAnswer(index, opt)}
-              disabled={submitted}
+              disabled={!!revealed}
             >
               <span className="opt-letter">{OPTION_LETTERS[j]}</span>
               <span className="opt-text">{opt}</span>
@@ -52,7 +54,7 @@ export const QuestionCard = memo(function QuestionCard({ index, question, select
           )
         })}
       </div>
-      {submitted && selected === null && (
+      {revealed && selected === null && (
         <div className="skip-note">Correct answer: <strong>{correct}</strong></div>
       )}
     </div>
