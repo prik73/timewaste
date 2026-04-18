@@ -257,20 +257,33 @@ body { margin: 0; }
 .week-card-number { font-size: 12px; font-weight: 700; color: var(--q-accent); white-space: nowrap; }
 .week-card-label  { font-size: 12px; color: var(--muted-foreground); line-height: 1.4; word-break: break-word; overflow-wrap: anywhere; }
 
+.menu-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 /* Back button */
 .btn-back {
-  padding: 5px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
   background: transparent;
   color: var(--muted-foreground);
-  font-size: 12px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: color var(--t), border-color var(--t);
+  transition: color var(--t), background var(--t);
   white-space: nowrap;
+  padding: 0;
 }
-.btn-back:hover { color: var(--foreground); border-color: var(--foreground); }
+.btn-back:hover { 
+  color: var(--foreground); 
+  background: var(--border); 
+}
 
 @media (max-width: 480px) {
   .menu-header-inner { padding: 10px 12px; gap: 8px; }
