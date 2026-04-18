@@ -47,15 +47,13 @@ body { margin: 0; }
 .practice-toggle {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted-foreground);
+  gap: 7px;
   cursor: pointer;
   user-select: none;
   padding: 5px 10px;
   border-radius: 6px;
   border: 1px solid var(--border);
+  color: var(--muted-foreground);
   transition: color var(--t), border-color var(--t), background var(--t);
 }
 .practice-toggle:has(input:checked) {
@@ -63,7 +61,43 @@ body { margin: 0; }
   border-color: var(--q-accent);
   background: var(--q-accent-bg);
 }
-.practice-toggle input { accent-color: var(--q-accent); }
+.practice-toggle input { accent-color: var(--q-accent); flex-shrink: 0; }
+
+.practice-toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.2;
+}
+.practice-toggle-label { font-size: 13px; font-weight: 600; }
+.practice-toggle-sub   { font-size: 10px; opacity: 0.75; }
+
+/* ── Toast ──────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--foreground);
+  color: var(--background);
+  padding: 9px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 400;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: toast-in 0.2s ease;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .toast { font-size: 12px; padding: 8px 14px; white-space: normal; max-width: calc(100vw - 32px); text-align: center; }
+}
 
 .menu-main {
   max-width: 740px;
@@ -177,7 +211,7 @@ body { margin: 0; }
   .mode-grid  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .week-grid  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .mode-card-full { padding: 14px 16px; }
-  .practice-toggle span { display: none; }
+  .practice-toggle-label { font-size: 12px; }
   .week-card  { padding: 10px 12px; }
   .week-card-label { font-size: 11px; }
 }

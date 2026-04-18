@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import type { QuizMode, Theme } from '../types'
 import { WEEK_LABELS, WEEK_COUNT, QUICK_COUNTS } from '../constants'
 
@@ -10,6 +10,18 @@ interface QuizMenuProps {
 
 export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
   const [practice, setPractice] = useState(false)
+  const [toast, setToast] = useState<string | null>(null)
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  function handlePractice(checked: boolean) {
+    setPractice(checked)
+    if (toastTimer.current) clearTimeout(toastTimer.current)
+    setToast(checked
+      ? 'Practice on — answers revealed after each pick'
+      : 'Practice off — submit when done to see results'
+    )
+    toastTimer.current = setTimeout(() => setToast(null), 2800)
+  }
 
   function select(mode: QuizMode) {
     onSelect(practice ? { ...mode, practice: true } : mode)
@@ -17,6 +29,7 @@ export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
 
   return (
     <div className="menu-page">
+      {toast && <div className="toast" key={toast}>{toast}</div>}
       <header className="menu-header">
         <div className="menu-header-inner">
           <div>
@@ -24,13 +37,16 @@ export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
             <p className="header-sub">Choose a quiz mode to begin</p>
           </div>
           <div className="menu-header-right">
-            <label className="practice-toggle" title="Reveal correct answer immediately after each pick">
+            <label className="practice-toggle">
               <input
                 type="checkbox"
                 checked={practice}
-                onChange={e => setPractice(e.target.checked)}
+                onChange={e => handlePractice(e.target.checked)}
               />
-              <span>Practice</span>
+              <span className="practice-toggle-text">
+                <span className="practice-toggle-label">Practice</span>
+                <span className="practice-toggle-sub">instant feedback</span>
+              </span>
             </label>
             <button className="btn-theme" onClick={onToggleTheme} title="Toggle theme">
               {theme === 'dark' ? '☀' : '☾'}
