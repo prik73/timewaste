@@ -38,6 +38,7 @@ export function SubjectMenu({ theme, onToggleTheme, onSelect }: SubjectMenuProps
           ))}
         </div>
         <div className="cutie-text">
+          <img src="/cat.png" alt="A cute cat" className="cat-image" />
           <strong>all the best cutie</strong>
         </div>
       </main>

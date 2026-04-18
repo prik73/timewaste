@@ -614,19 +614,30 @@ body { margin: 0; }
   .btn-reset      { font-size: 12px; padding: 5px 8px; }
 }
 
-/* ── Custom text ────────────────────────────────────────── */
+
 .cutie-text {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 40px;
   font-size: 16px;
   color: var(--muted-foreground);
   cursor: default;
 }
 
+.cat-image {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 1.7px;
+  margin-bottom: 13px;
+  object-fit: contain;
+}
+
 .cutie-text strong {
   transition: color 0.3s ease;
 }
 
-.cutie-text strong:hover {
+.cutie-text:hover strong {
   color: #ff6961;
 }
