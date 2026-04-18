@@ -12,7 +12,9 @@ export interface QuizState {
 
 export type Theme = 'light' | 'dark'
 
+export type SubjectId = 'gender' | 'analytics'
+
 export type QuizMode =
-  | { type: 'full'; practice?: boolean }
-  | { type: 'quick'; count: number; practice?: boolean }
-  | { type: 'week'; week: number; practice?: boolean }
+  | { subject: SubjectId; type: 'full'; practice?: boolean }
+  | { subject: SubjectId; type: 'quick'; count: number; practice?: boolean }
+  | { subject: SubjectId; type: 'week'; week: number; practice?: boolean }

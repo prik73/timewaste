@@ -1,6 +1,7 @@
 import type { Theme } from '../types'
 
 interface HeaderProps {
+  title: string
   label: string
   answered: number
   total: number
@@ -14,7 +15,7 @@ interface HeaderProps {
   onBack: () => void
 }
 
-export function Header({ label, answered, total, score, submitted, isPractice, progress, theme, onToggleTheme, onReset, onBack }: HeaderProps) {
+export function Header({ title, label, answered, total, score, submitted, isPractice, progress, theme, onToggleTheme, onReset, onBack }: HeaderProps) {
   const progressWidth = submitted ? (score / total) * 100 : progress
 
   return (
@@ -23,7 +24,7 @@ export function Header({ label, answered, total, score, submitted, isPractice, p
         <div className="header-left">
           <button className="btn-back" onClick={onBack} title="Change quiz mode">← Back</button>
           <div>
-            <h1 className="header-title">Contextualising Gender</h1>
+            <h1 className="header-title">{title}</h1>
             <p className="header-sub">
               {submitted
                 ? `${label} · Score: ${score}/${total} (${((score / total) * 100).toFixed(1)}%)`

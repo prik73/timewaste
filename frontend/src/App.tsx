@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import './App.css'
-import type { QuizMode } from './types'
-import { WEEK_LABELS } from './constants'
+import type { QuizMode, SubjectId } from './types'
+import { SUBJECTS } from './constants'
 import { useQuiz } from './hooks/useQuiz'
 import { useTheme } from './hooks/useTheme'
+import { SubjectMenu } from './components/SubjectMenu'
 import { QuizMenu } from './components/QuizMenu'
 import { Header } from './components/Header'
 import { ResetModal } from './components/ResetModal'
@@ -16,21 +17,44 @@ function modeLabel(mode: QuizMode): string {
   const prefix = mode.practice ? 'Practice · ' : ''
   if (mode.type === 'full')  return `${prefix}Full Mock Test`
   if (mode.type === 'quick') return `${prefix}Quick Quiz · ${mode.count} Questions`
-  return `${prefix}Week ${mode.week} · ${WEEK_LABELS[mode.week]}`
+  return `${prefix}Week ${mode.week} · ${SUBJECTS[mode.subject].weekLabels[mode.week]}`
 }
 
-const DEFAULT_MODE: QuizMode = { type: 'full' }
+const DEFAULT_MODE: QuizMode = { subject: 'gender', type: 'full' }
 
 export default function App() {
   const { theme, toggle: toggleTheme } = useTheme()
+  const [activeSubject, setActiveSubject] = useState<SubjectId | null>(null)
   const [mode, setMode] = useState<QuizMode | null>(null)
   const [showConfirm, setShowConfirm] = useState(false)
 
   const activeMode = mode ?? DEFAULT_MODE
   const quiz = useQuiz(activeMode)
 
+  const handleSubjectSelect = (chosen: SubjectId) => {
+    const stalePrefix = chosen === 'gender' ? 'mooc_quiz_analytics' : 'mooc_quiz_gender';
+    
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith(stalePrefix)) {
+        localStorage.removeItem(key)
+      }
+    })
+    
+    setActiveSubject(chosen)
+  }
+
+  if (activeSubject === null) {
+    return <SubjectMenu theme={theme} onToggleTheme={toggleTheme} onSelect={handleSubjectSelect} />
+  }
+
   if (mode === null) {
-    return <QuizMenu theme={theme} onToggleTheme={toggleTheme} onSelect={setMode} />
+    return <QuizMenu 
+      theme={theme} 
+      activeSubject={activeSubject} 
+      onToggleTheme={toggleTheme} 
+      onSelect={setMode} 
+      onBack={() => setActiveSubject(null)} 
+    />
   }
 
   const handleReset = () => {
@@ -46,6 +70,7 @@ export default function App() {
   return (
     <div className="app">
       <Header
+        title={SUBJECTS[activeMode.subject].title}
         label={modeLabel(mode)}
         answered={quiz.answered}
         total={quiz.total}

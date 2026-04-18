@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react'
 import type { QuizState, QuizMode, Question } from '../types'
 import { QUESTIONS_PER_WEEK } from '../constants'
 import { QUESTIONS } from '../data/questions'
+import { ANALYTICS_QUESTIONS } from '../data/analyticsQuestions'
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -14,16 +15,18 @@ function shuffle<T>(arr: T[]): T[] {
 
 function storageKey(mode: QuizMode): string {
   const p = mode.practice ? '_p' : ''
-  if (mode.type === 'full')  return `mooc_quiz_full${p}`
-  if (mode.type === 'quick') return `mooc_quiz_quick_${mode.count}${p}`
-  return `mooc_quiz_week_${mode.week}${p}`
+  const base = `mooc_quiz_${mode.subject}`
+  if (mode.type === 'full')  return `${base}_full${p}`
+  if (mode.type === 'quick') return `${base}_quick_${mode.count}${p}`
+  return `${base}_week_${mode.week}${p}`
 }
 
 function poolForMode(mode: QuizMode): Question[] {
-  if (mode.type === 'full') return QUESTIONS
-  if (mode.type === 'quick') return shuffle(QUESTIONS).slice(0, mode.count)
+  const pool = mode.subject === 'analytics' ? ANALYTICS_QUESTIONS : QUESTIONS
+  if (mode.type === 'full') return pool
+  if (mode.type === 'quick') return shuffle(pool).slice(0, mode.count)
   const start = (mode.week - 1) * QUESTIONS_PER_WEEK
-  return QUESTIONS.slice(start, start + QUESTIONS_PER_WEEK)
+  return pool.slice(start, start + QUESTIONS_PER_WEEK)
 }
 
 function createFreshState(mode: QuizMode): QuizState {

@@ -1,20 +1,54 @@
 export const THEME_KEY      = 'mooc_theme'
 export const OPTION_LETTERS = ['A', 'B', 'C', 'D'] as const
 export const QUESTIONS_PER_WEEK = 10
-export const WEEK_COUNT         = 12
 export const QUICK_COUNTS       = [10, 20, 30, 50] as const
 
-export const WEEK_LABELS: Record<number, string> = {
-  1: 'Simone de Beauvoir & Second Wave',
-  2: 'Black Feminism & Intersectionality',
-  3: 'Toni Morrison & Queer Theory',
-  4: 'Queer History & Identity',
-  5: 'LGBTQ+ Literature & Law',
-  6: 'Butler, Irigaray & Kristeva',
-  7: 'Gender in Translation',
-  8: 'Performativity & Social Movements',
-  9: 'Masculinity Studies',
-  10: 'Body, Technology & Cyberculture',
-  11: 'Biopolitics & Posthumanism',
-  12: 'Cyborg Feminism & Covid',
+import type { SubjectId } from './types'
+
+export interface SubjectConfig {
+  id: SubjectId;
+  title: string;
+  weekCount: number;
+  weekLabels: Record<number, string>;
+}
+
+export const SUBJECTS: Record<SubjectId, SubjectConfig> = {
+  'gender': {
+    id: 'gender',
+    title: 'Contextualising Gender',
+    weekCount: 12,
+    weekLabels: {
+      1: 'Simone de Beauvoir & Second Wave',
+      2: 'Black Feminism & Intersectionality',
+      3: 'Toni Morrison & Queer Theory',
+      4: 'Queer History & Identity',
+      5: 'LGBTQ+ Literature & Law',
+      6: 'Butler, Irigaray & Kristeva',
+      7: 'Gender in Translation',
+      8: 'Performativity & Social Movements',
+      9: 'Masculinity Studies',
+      10: 'Body, Technology & Cyberculture',
+      11: 'Biopolitics & Posthumanism',
+      12: 'Cyborg Feminism & Covid',
+    }
+  },
+  'analytics': {
+    id: 'analytics',
+    title: 'Data Analytics',
+    weekCount: 12,
+    weekLabels: {
+      1: 'Module 1: Introduction',
+      2: 'Module 2: Descriptive Analytics',
+      3: 'Module 3: Probability',
+      4: 'Module 4: Distributions',
+      5: 'Module 5: Sampling',
+      6: 'Module 6: Distributions 2',
+      7: 'Module 7: Estimation',
+      8: 'Module 8: Hypothesis Testing',
+      9: 'Module 9: ANOVA',
+      10: 'Module 10: Regression',
+      11: 'Module 11: Classification',
+      12: 'Module 12: Clustering & Decision Trees',
+    }
+  }
 }

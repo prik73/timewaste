@@ -1,17 +1,22 @@
 import { useState, useRef } from 'react'
-import type { QuizMode, Theme } from '../types'
-import { WEEK_LABELS, WEEK_COUNT, QUICK_COUNTS } from '../constants'
+import type { QuizMode, Theme, SubjectId } from '../types'
+import { SUBJECTS, QUICK_COUNTS } from '../constants'
 
 interface QuizMenuProps {
   theme: Theme
+  activeSubject: SubjectId
   onToggleTheme: () => void
   onSelect: (mode: QuizMode) => void
+  onBack: () => void
 }
 
-export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
+export function QuizMenu({ theme, activeSubject, onToggleTheme, onSelect, onBack }: QuizMenuProps) {
   const [practice, setPractice] = useState(false)
   const [toast, setToast] = useState<string | null>(null)
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const config = SUBJECTS[activeSubject]
+  const totalQuestions = config.weekCount * 10
 
   function handlePractice(checked: boolean) {
     setPractice(checked)
@@ -23,8 +28,10 @@ export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
     toastTimer.current = setTimeout(() => setToast(null), 2800)
   }
 
-  function select(mode: QuizMode) {
-    onSelect(practice ? { ...mode, practice: true } : mode)
+  type ModeOption = { type: 'full' } | { type: 'quick'; count: number } | { type: 'week'; week: number };
+
+  function select(mode: ModeOption) {
+    onSelect(practice ? { ...mode, subject: activeSubject, practice: true } as QuizMode : { ...mode, subject: activeSubject } as QuizMode)
   }
 
   return (
@@ -32,9 +39,14 @@ export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
       {toast && <div className="toast" key={toast}>{toast}</div>}
       <header className="menu-header">
         <div className="menu-header-inner">
-          <div>
-            <h1 className="header-title">Contextualising Gender</h1>
-            <p className="header-sub">Choose a quiz mode to begin</p>
+          <div className="menu-header-left">
+            <button className="btn-back" onClick={onBack} title="Back to Courses">
+              ←
+            </button>
+            <div>
+              <h1 className="header-title">{config.title}</h1>
+              <p className="header-sub">Choose a quiz mode to begin</p>
+            </div>
           </div>
           <div className="menu-header-right">
             <label className="practice-toggle">
@@ -61,8 +73,8 @@ export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
         <section className="menu-section">
           <button className="mode-card mode-card-full" onClick={() => select({ type: 'full' })}>
             <span className="mode-card-title">Full Mock Test</span>
-            <span className="mode-card-desc">All 120 questions · all weeks · shuffled</span>
-            <span className="mode-card-badge">120 Q</span>
+            <span className="mode-card-desc">All {totalQuestions} questions · all weeks · shuffled</span>
+            <span className="mode-card-badge">{totalQuestions} Q</span>
           </button>
         </section>
 
@@ -89,14 +101,14 @@ export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
           <h2 className="menu-section-title">Week-wise Test</h2>
           <p className="menu-section-sub">10 questions per week</p>
           <div className="week-grid">
-            {Array.from({ length: WEEK_COUNT }, (_, i) => i + 1).map(week => (
+            {Array.from({ length: config.weekCount }, (_, i) => i + 1).map(week => (
               <button
                 key={week}
                 className="week-card"
                 onClick={() => select({ type: 'week', week })}
               >
                 <span className="week-card-number">Week {week}</span>
-                <span className="week-card-label">{WEEK_LABELS[week]}</span>
+                <span className="week-card-label">{config.weekLabels[week]}</span>
               </button>
             ))}
           </div>
