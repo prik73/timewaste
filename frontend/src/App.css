@@ -1,18 +1,62 @@
 /* ── Quiz tokens (prefixed to avoid colliding with oat's --accent etc.) ─── */
 :root {
-  --q-correct:        light-dark(#16a34a, #4ade80);
-  --q-correct-bg:     light-dark(#f0fdf4, #052e16);
-  --q-correct-border: light-dark(#86efac, #166534);
-  --q-wrong:          light-dark(#dc2626, #f87171);
-  --q-wrong-bg:       light-dark(#fef2f2, #2d0f0f);
-  --q-wrong-border:   light-dark(#fca5a5, #7f1d1d);
-  --q-skip:           light-dark(#d97706, #fbbf24);
-  --q-skip-bg:        light-dark(#fffbeb, #1c1505);
-  --q-skip-border:    light-dark(#fde68a, #78350f);
-  --q-accent:         light-dark(#4f46e5, #818cf8);
-  --q-accent-bg:      light-dark(#eef2ff, #1e1b4b);
+  --q-correct:        #16a34a;
+  --q-correct-bg:     #f0fdf4;
+  --q-correct-border: #86efac;
+  --q-wrong:          #dc2626;
+  --q-wrong-bg:       #fef2f2;
+  --q-wrong-border:   #fca5a5;
+  --q-skip:           #d97706;
+  --q-skip-bg:        #fffbeb;
+  --q-skip-border:    #fde68a;
+  --q-accent:         #4f46e5;
+  --q-accent-bg:      #eef2ff;
   --radius: 10px;
   --t: 0.15s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --q-correct:        #4ade80;
+    --q-correct-bg:     #052e16;
+    --q-correct-border: #166534;
+    --q-wrong:          #f87171;
+    --q-wrong-bg:       #2d0f0f;
+    --q-wrong-border:   #7f1d1d;
+    --q-skip:           #fbbf24;
+    --q-skip-bg:        #1c1505;
+    --q-skip-border:    #78350f;
+    --q-accent:         #818cf8;
+    --q-accent-bg:      #1e1b4b;
+  }
+}
+
+:root[style*="color-scheme: dark"] {
+  --q-correct:        #4ade80;
+  --q-correct-bg:     #052e16;
+  --q-correct-border: #166534;
+  --q-wrong:          #f87171;
+  --q-wrong-bg:       #2d0f0f;
+  --q-wrong-border:   #7f1d1d;
+  --q-skip:           #fbbf24;
+  --q-skip-bg:        #1c1505;
+  --q-skip-border:    #78350f;
+  --q-accent:         #818cf8;
+  --q-accent-bg:      #1e1b4b;
+}
+
+:root[style*="color-scheme: light"] {
+  --q-correct:        #16a34a;
+  --q-correct-bg:     #f0fdf4;
+  --q-correct-border: #86efac;
+  --q-wrong:          #dc2626;
+  --q-wrong-bg:       #fef2f2;
+  --q-wrong-border:   #fca5a5;
+  --q-skip:           #d97706;
+  --q-skip-bg:        #fffbeb;
+  --q-skip-border:    #fde68a;
+  --q-accent:         #4f46e5;
+  --q-accent-bg:      #eef2ff;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
