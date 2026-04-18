@@ -17,8 +17,8 @@ export function QuizMenu({ theme, onToggleTheme, onSelect }: QuizMenuProps) {
     setPractice(checked)
     if (toastTimer.current) clearTimeout(toastTimer.current)
     setToast(checked
-      ? 'Practice on — answers revealed after each pick'
-      : 'Practice off — submit when done to see results'
+      ? 'Practice on : answers revealed after each pick'
+      : 'Practice off : submit when done to see results'
     )
     toastTimer.current = setTimeout(() => setToast(null), 2800)
   }
