@@ -8,12 +8,12 @@ interface ScoreBannerProps {
 export function ScoreBanner({ score, total, unanswered, scoreGrade }: ScoreBannerProps) {
   return (
     <div className={`score-banner ${scoreGrade}`}>
-      <span className="score-big">🎯 {score} / {total}</span>
+      <span className="score-big"> {score} / {total}</span>
       <div className="score-details">
         {((score / total) * 100).toFixed(1)}% correct
         {unanswered > 0 && ` · ${unanswered} not answered`}
       </div>
-      {score === total && <div className="score-perfect">🎉 Perfect score!</div>}
+      {score === total && <div className="score-perfect">Perfect score!. good stuff.</div>}
     </div>
   )
 }
