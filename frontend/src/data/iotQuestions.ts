@@ -460,5 +460,82 @@ export const IOT_QUESTIONS: Question[] = [
     "q": "Which frequency band is classified as high band in 5G NR?",
     "o": ["< 1 GHz", "1\u20136 GHz", "> 24 GHz", "6\u201324 GHz"],
     "a": "> 24 GHz"
+  },
+
+  // Week 7
+  {
+    "q": "What does LPWAN stand for?",
+    "o": ["Low Power Wireless Access Network", "Long Power Wide Area Network", "Low Power Wide Area Network", "Long Power Wireless Area Network"],
+    "a": "Low Power Wide Area Network"
+  },
+  {
+    "q": "LoRa technology operates in which of the following frequency bands?",
+    "o": ["License-free sub-gigahertz bands", "Licensed microwave bands", "Optical frequency bands", "Millimeter-wave bands"],
+    "a": "License-free sub-gigahertz bands"
+  },
+  {
+    "q": "What is the maximum wireless throughput achieved by SIGFOX?",
+    "o": ["1 kbps", "500 bps", "10 kbps", "100 bps"],
+    "a": "100 bps"
+  },
+  {
+    "q": "Which IEEE standard forms the basis of the physical and MAC layers of Zigbee?",
+    "o": ["IEEE 802.11", "IEEE 802.3", "IEEE 802.15.4", "IEEE 802.16"],
+    "a": "IEEE 802.15.4"
+  },
+  {
+    "q": "Which of the following is NOT a Zigbee-supported network topology?",
+    "o": ["Star", "Tree", "Mesh", "Ring"],
+    "a": "Ring"
+  },
+  {
+    "q": "What is Xbee in the context of Zigbee communication?",
+    "o": ["A network protocol", "A product that uses the Zigbee protocol", "A routing algorithm", "A MAC-layer standard"],
+    "a": "A product that uses the Zigbee protocol"
+  },
+  {
+    "q": "Which sensor in an autonomous vehicle generates data in the range of 20\u201340 MB/s?",
+    "o": ["GPS", "RADAR", "Camera", "SONAR"],
+    "a": "Camera"
+  },
+  {
+    "q": "What type of computing processes data closer to sensors before sending it to the cloud?",
+    "o": ["Edge computing", "Centralized computing", "Distributed computing", "Batch computing"],
+    "a": "Edge computing"
+  },
+  {
+    "q": "In an end-to-end IIoT processing pipeline, where are rules initially configured?",
+    "o": ["At the sensor nodes", "In the cloud", "At the edge analytics agent", "At the actuators"],
+    "a": "In the cloud"
+  },
+  {
+    "q": "What is the main objective of AR drones-based precision agriculture?",
+    "o": ["Monitoring soil moisture", "Precise fertilizer spray to weeds", "Autonomous harvesting", "Livestock monitoring"],
+    "a": "Precise fertilizer spray to weeds"
+  },
+  {
+    "q": "SWAMP enables a smart management layer between which two systems?",
+    "o": ["Water distribution network and farm-based irrigation system", "Cloud services and mobile applications", "Sensors and actuators", "Enterprise and automation networks"],
+    "a": "Water distribution network and farm-based irrigation system"
+  },
+  {
+    "q": "What do process variables represent in an industrial control system?",
+    "o": ["Controller decision outputs", "Standard operating limits", "Values of process parameters measured using sensors", "Signals sent to actuators"],
+    "a": "Values of process parameters measured using sensors"
+  },
+  {
+    "q": "What is the fundamental element of industrial control systems for automatic control?",
+    "o": ["Control loops", "Sensors", "Controllers", "Actuators"],
+    "a": "Control loops"
+  },
+  {
+    "q": "Which component of a SCADA system interfaces directly with sensors to read and convert data?",
+    "o": ["The Supervisory System", "The Human Machine Interface (HMI)", "The Communication Infrastructure", "Programmable Logic Controllers (PLC) and Remote Terminal Units (RTU)"],
+    "a": "Programmable Logic Controllers (PLC) and Remote Terminal Units (RTU)"
+  },
+  {
+    "q": "What is a primary advantage of PLCs over traditional hard-wired systems?",
+    "o": ["They are physically larger and more durable", "They can be easily reprogrammed, making maintenance and upgrades more economical", "They operate at a much higher voltage", "They do not require a power supply"],
+    "a": "They can be easily reprogrammed, making maintenance and upgrades more economical"
   }
 ]
