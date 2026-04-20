@@ -768,5 +768,159 @@ export const IOT_QUESTIONS: Question[] = [
     "q": "What does the \u201cFlavor Matrix\u201d by Culinary Science Industries use to enhance dishes?",
     "o": ["Robot chefs", "Augmented Reality menus", "3D printed food", "Machine learning and data analysis of food ingredients"],
     "a": "Machine learning and data analysis of food ingredients"
+  },
+
+  // Week 11
+  {
+    "q": "In the context of the IIoT Healthcare Architecture, which process immediately follows \u201cSensing\u201d?",
+    "o": ["Learning", "Storing", "Sending", "Processing"],
+    "a": "Sending"
+  },
+  {
+    "q": "State True or False: Asthma is a lifelong disease that can be completely cured using IIoT-based smart inhalers.",
+    "o": ["True", "False"],
+    "a": "False"
+  },
+  {
+    "q": "Which of the following is given as an example of a wireless ECG monitoring device?",
+    "o": ["iHealth BP5", "Dexcom", "QardioCore", "Kinsa smart thermometer"],
+    "a": "QardioCore"
+  },
+  {
+    "q": "State True or False: In Advanced Metering Infrastructure (AMI), Broadband over PowerLine and Fixed radio frequency are used for communication networks.",
+    "o": ["True", "False"],
+    "a": "True"
+  },
+  {
+    "q": "Which specific issue can IoT predict in the water sector besides tracking water pressure and water quality?",
+    "o": ["Water freezing points", "Exact rainwater volume", "Water leakage", "New underground water sources"],
+    "a": "Water leakage"
+  },
+  {
+    "q": "How does a digital power plant reduce costs?",
+    "o": ["By increasing manpower", "By increasing fuel consumption", "By using manual monitoring", "By utilizing automated devices reducing the need for manpower and maintenance"],
+    "a": "By utilizing automated devices reducing the need for manpower and maintenance"
+  },
+  {
+    "q": "Which type of RFID tag relies on backscattering and has no internal power source?",
+    "o": ["Active RFID", "Passive RFID", "Battery-Assisted Passive RFID", "Hybrid RFID"],
+    "a": "Passive RFID"
+  },
+  {
+    "q": "Which of the following is considered a primary function of Inventory Management?",
+    "o": ["Increasing data scattering", "Decoupling components of the production-distribution system", "Broadcasting information signals", "Creating additional noise"],
+    "a": "Decoupling components of the production-distribution system"
+  },
+  {
+    "q": "Fill in the blank: Quality Control is defined as a system of routine technical activities to measure and control the quality of the inventory as it is being ______.",
+    "o": ["Developed", "Transported to retail", "Sold to the customer", "Disposed of"],
+    "a": "Developed"
+  },
+  {
+    "q": "Fill in the blank: The Intrusion Triangle consists of Opportunity, Means, and ______.",
+    "o": ["Integrity", "Motive", "Availability", "Authentication"],
+    "a": "Motive"
+  },
+  {
+    "q": "Which Software Security concept is responsible for the verification of credentials entered locally or remotely?",
+    "o": ["Integrity", "Authentication", "Availability", "Network segmentation"],
+    "a": "Authentication"
+  },
+  {
+    "q": "Which type of Network Security specifically scans for malware detection and prevention?",
+    "o": ["Access control", "Application security", "Behavioral analytics", "Antivirus/antimalware software"],
+    "a": "Antivirus/antimalware software"
+  },
+  {
+    "q": "According to the Facilities Management Good Practice Guide, what does Facility Management manage on behalf of property owners?",
+    "o": ["Factory assembly lines", "Buildings, precincts, community infrastructure", "Cloud computing servers", "Retail supply chains"],
+    "a": "Buildings, precincts, community infrastructure"
+  },
+  {
+    "q": "State True or False: In the scope of IoT in Facility Management, implementing new technology includes Light Fidelity (Li-Fi) and data security.",
+    "o": ["True", "False"],
+    "a": "True"
+  },
+  {
+    "q": "Which support service focuses on researching potential customers?",
+    "o": ["Administrative Support", "Marketing", "Business Development", "Information Technology"],
+    "a": "Marketing"
+  },
+
+  // Week 12
+  {
+    "q": "In the Oil and Gas Industry Work-flow, which step immediately precedes the data moving to a cloud-based analytics platform?",
+    "o": ["Deploy IoT solutions", "Apply predictive analytics", "Data analysis by extraction, transform and load", "Identify required maintenance"],
+    "a": "Data analysis by extraction, transform and load"
+  },
+  {
+    "q": "State True or False: In the Machine Learning and Cloud Services workflow, identifying specific data types occurs after analyzing and evaluating data.",
+    "o": ["True", "False"],
+    "a": "False"
+  },
+  {
+    "q": "In the Chemical Industry, what is a primary goal of Predictive Maintenance?",
+    "o": ["Address real time issues", "Track vehicle locations", "Increase energy usage", "Optimize medicine routing"],
+    "a": "Address real time issues"
+  },
+  {
+    "q": "Which of the following actions is part of \u201cImprove Logistics\u201d in the Chemical Industry?",
+    "o": ["Analyzing water and nutrients", "Detection of contamination or attacks", "Pricing model with profit margin", "Reducing equipment breakdown"],
+    "a": "Detection of contamination or attacks"
+  },
+  {
+    "q": "Fill in the blank: IoT applications in the Pharmaceutical Industry are deployed to connect different technologies including manufacturing, monitoring, controlling, and ______.",
+    "o": ["Distribution", "Farming", "Extraction", "Refining"],
+    "a": "Distribution"
+  },
+  {
+    "q": "How do UAVs typically communicate with industrial systems?",
+    "o": ["Through handwritten notes", "Through SCADA systems", "Via wired connections only", "They do not communicate with industrial systems"],
+    "a": "Through SCADA systems"
+  },
+  {
+    "q": "The ______ generation of UAV technology features transformable designs with 360\u00b0 gimbals, high quality video, and improved piloting modes.",
+    "o": ["Third", "Fourth", "Fifth", "Sixth"],
+    "a": "Fifth"
+  },
+  {
+    "q": "Which of the following is an application of UAVs in Energy Management?",
+    "o": ["Resisting deforestation", "Inspecting large boiler at power plants", "Delivery of defibrillators", "Broadcasting live events"],
+    "a": "Inspecting large boiler at power plants"
+  },
+  {
+    "q": "In the mining industry, regular surface surveys by UAVs are primarily used for:",
+    "o": ["Watershed analysis", "Canopy mapping", "Finding missing items", "Optimized blast design"],
+    "a": "Optimized blast design"
+  },
+  {
+    "q": "Fill in the blank: In the Healthcare sector, research is being done on drones with ______ that can help the senior population.",
+    "o": ["Manipulator arms", "Defibrillators", "Thermal imagery", "360\u00b0 gimbals"],
+    "a": "Manipulator arms"
+  },
+  {
+    "q": "How do UAVs specifically assist in testing networks within the Telecommunication sector?",
+    "o": ["By broadcasting live events", "By providing internet services to urban areas", "By monitoring construction sites", "By testing network coverage and stability"],
+    "a": "By testing network coverage and stability"
+  },
+  {
+    "q": "Fill in the blank: A case study enables a researcher to closely examine the data within a ______.",
+    "o": ["Broad universal scope", "Specific context", "Simulated testing environment", "Purely hypothetical scenario"],
+    "a": "Specific context"
+  },
+  {
+    "q": "State True or False: Case studies are limited to providing only qualitative analysis of the data.",
+    "o": ["True", "False"],
+    "a": "False"
+  },
+  {
+    "q": "Fill in the blank: A key point to ponder for all case studies is the reduction of ______ of workers.",
+    "o": ["Mandatory work hours", "Annual paid leaves", "Technical training costs", "Health hazards"],
+    "a": "Health hazards"
+  },
+  {
+    "q": "What do case studies explore and investigate through detailed analysis?",
+    "o": ["Real-life phenomenon", "Purely fictional events", "Ancient historical myths", "Unknown future predictions"],
+    "a": "Real-life phenomenon"
   }
 ]

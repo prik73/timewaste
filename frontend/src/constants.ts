@@ -57,7 +57,7 @@ export const SUBJECTS: Record<SubjectId, SubjectConfig> = {
   'iot': {
     id: 'iot',
     title: 'Industrial IoT',
-    weekCount: 10,
+    weekCount: 12,
     questionsPerWeek: 15,
     weekLabels: {
       1: 'Sensors, Actuators & Wireless Protocols',
@@ -70,6 +70,8 @@ export const SUBJECTS: Record<SubjectId, SubjectConfig> = {
       8: 'ML, Deep Learning, Cloud & IIoT Analytics',
       9: 'SDN, Fog Computing, Hadoop & IIoT Data Challenges',
       10: 'IIoT Security, 6TiSCH, Smart Factories & Supply Chain',
+      11: 'Healthcare IoT, Smart Grid, RFID & Facility Management',
+      12: 'Oil & Gas, UAVs, Pharmaceuticals & Industry Case Studies',
     }
   }
 }
