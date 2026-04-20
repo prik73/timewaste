@@ -537,5 +537,159 @@ export const IOT_QUESTIONS: Question[] = [
     "q": "What is a primary advantage of PLCs over traditional hard-wired systems?",
     "o": ["They are physically larger and more durable", "They can be easily reprogrammed, making maintenance and upgrades more economical", "They operate at a much higher voltage", "They do not require a power supply"],
     "a": "They can be easily reprogrammed, making maintenance and upgrades more economical"
+  },
+
+  // Week 8
+  {
+    "q": "What is the purpose of feature extraction in ML?",
+    "o": ["Convert raw data into compressed bitstreams only", "Convert raw data to information that relates to the physical state of the asset", "Encrypt sensor data for security", "Remove time stamps from data"],
+    "a": "Convert raw data to information that relates to the physical state of the asset"
+  },
+  {
+    "q": "What is a primary goal of applying analytics in industrial systems?",
+    "o": ["Maximizing data volume", "Replacing all controllers with cloud services", "Improving operational platform, performance, and safety", "Eliminating human workers completely"],
+    "a": "Improving operational platform, performance, and safety"
+  },
+  {
+    "q": "What kind of data does supervised learning require?",
+    "o": ["Completely unlabeled streams", "Only binary sensor signals", "Labeled datasets with known output classes or values", "Data without any prior samples"],
+    "a": "Labeled datasets with known output classes or values"
+  },
+  {
+    "q": "Which of the following is explicitly listed as a goal of IIoT analytics?",
+    "o": ["Manual inspection", "Dynamic operations optimization", "Hardware miniaturization", "Network routing"],
+    "a": "Dynamic operations optimization"
+  },
+  {
+    "q": "What approach replaces physics-based models in modern IIoT analytics?",
+    "o": ["Data-driven modelling using ML and DL", "Heuristic optimization", "Rule-based control", "Manual calibration"],
+    "a": "Data-driven modelling using ML and DL"
+  },
+  {
+    "q": "Data Science is an interdisciplinary field involving which of the following areas?",
+    "o": ["Only computer science", "Only data processing", "Only artificial intelligence", "Computer science, statistics, mathematics, machine learning, and domain expertise"],
+    "a": "Computer science, statistics, mathematics, machine learning, and domain expertise"
+  },
+  {
+    "q": "Fill in the blank: Unsupervised learning is primarily used for identifying similar groups of data called ______.",
+    "o": ["Clustering", "Classification", "Regression", "Prediction"],
+    "a": "Clustering"
+  },
+  {
+    "q": "Which clustering algorithm allows a data point to belong to more than one cluster?",
+    "o": ["K-Means", "Linear Regression", "Decision Tree", "Fuzzy c-Means"],
+    "a": "Fuzzy c-Means"
+  },
+  {
+    "q": "Fill in the blank: Machine learning algorithms are not useful for ______ data.",
+    "o": ["Structured", "Temporal", "High dimensional", "Labeled"],
+    "a": "High dimensional"
+  },
+  {
+    "q": "State True or False: Deep learning mimics the working function of billions of neurons in the human brain.",
+    "o": ["True", "False"],
+    "a": "True"
+  },
+  {
+    "q": "Platform-as-a-Service mainly allows industries to do what?",
+    "o": ["Only deploy hardware", "Self-develop applications", "Store raw sensor data only", "Replace networking infrastructure"],
+    "a": "Self-develop applications"
+  },
+  {
+    "q": "Which type of data is explicitly mentioned as contributing to cloud demand in IIoT?",
+    "o": ["Image data", "M2M sensor data", "Social media data", "Textual reports"],
+    "a": "M2M sensor data"
+  },
+  {
+    "q": "State True or False: Increase in number of devices makes IIoT ecosystems more complex, necessitating cloud-based device management.",
+    "o": ["True", "False"],
+    "a": "True"
+  },
+  {
+    "q": "What is one key purpose of a Service Level Agreement (SLA) for IIoT?",
+    "o": ["Eliminating cloud providers", "Promising deliverables from cloud providers", "Increasing hardware redundancy", "Enforcing local computation"],
+    "a": "Promising deliverables from cloud providers"
+  },
+  {
+    "q": "Fill in the blank: A good SLA should be affordable, quantifiable, controllable, meaningful, mutually acceptable, and ______.",
+    "o": ["Flexible", "Enforceable", "Achievable", "Adaptive"],
+    "a": "Achievable"
+  },
+
+  // Week 9
+  {
+    "q": "Why is Julia programming considered advantageous?",
+    "o": ["It is slower than Python.", "It merges Python's benefits with C's performance.", "It is a closed-source language.", "It does not support parallelism."],
+    "a": "It merges Python's benefits with C's performance."
+  },
+  {
+    "q": "What relationship does Linear Regression detect?",
+    "o": ["A non-linear relationship between binary variables", "A clustering pattern in unlabeled data", "A random relationship between unrelated variables", "A linear relationship between a dependent variable and independent variables"],
+    "a": "A linear relationship between a dependent variable and independent variables"
+  },
+  {
+    "q": "Which core concept defines Software-Defined Networking (SDN)?",
+    "o": ["Hardwiring control logic into every switch", "Decoupling the control plane from the data plane", "Combining all network functions into a single monolithic server", "Eliminating the need for any software in networking"],
+    "a": "Decoupling the control plane from the data plane"
+  },
+  {
+    "q": "Fill in the blank: Fog computing architecture places fog nodes between ________ and the cloud.",
+    "o": ["Industrial end devices", "Enterprise servers", "Mobile applications", "Databases"],
+    "a": "Industrial end devices"
+  },
+  {
+    "q": "What is the major challenge in handling data from sensors and machines in IIoT?",
+    "o": ["High cost of sensors", "Diversity in protocols, data syntax, and data sources", "Lack of storage capacity", "Insufficient processing power"],
+    "a": "Diversity in protocols, data syntax, and data sources"
+  },
+  {
+    "q": "State True or False: Fog computing in IIoT prevents unnecessary noisy big data crowd at the cloud.",
+    "o": ["True", "False"],
+    "a": "True"
+  },
+  {
+    "q": "State True or False: R is an open source tool for programming, statistical analysis, and graphics representation.",
+    "o": ["True", "False"],
+    "a": "True"
+  },
+  {
+    "q": "Which R package provides functions for fuzzy clustering, support vector machine, and na\u00efve bayes classifier?",
+    "o": ["rpart", "e1071", "nnet", "caret"],
+    "a": "e1071"
+  },
+  {
+    "q": "Fill in the blank: The basic service models provided by cloud computing include IaaS, PaaS, and ______.",
+    "o": ["DaaS", "NaaS", "SaaS", "FaaS"],
+    "a": "SaaS"
+  },
+  {
+    "q": "Which Hadoop component is described as a module containing the utilities that support the other Hadoop components?",
+    "o": ["HDFS", "MapReduce", "Hadoop Common", "YARN"],
+    "a": "Hadoop Common"
+  },
+  {
+    "q": "What routing protocol does BCube run?",
+    "o": ["BSR (BCube Source Routing)", "BGP", "OSPF", "RIP"],
+    "a": "BSR (BCube Source Routing)"
+  },
+  {
+    "q": "Which of the following is mentioned as a data center network challenge?",
+    "o": ["High cost", "Poor server-to-server connectivity", "Complex configuration", "Limited vendors"],
+    "a": "Poor server-to-server connectivity"
+  },
+  {
+    "q": "Which protocol is mentioned as part of SDN components?",
+    "o": ["TCP", "UDP", "OpenFlow", "HTTP"],
+    "a": "OpenFlow"
+  },
+  {
+    "q": "State True or False: GCAM is used to place flow-rules in SDN forwarding devices, but it is limited in capacity.",
+    "o": ["True", "False"],
+    "a": "False"
+  },
+  {
+    "q": "Which advantage of SDIIoT enables events to be processed in order through deterministic forwarding of traffic?",
+    "o": ["Deterministic networking", "High availability", "Low-latency virtualization", "Robust security"],
+    "a": "Deterministic networking"
   }
 ]
