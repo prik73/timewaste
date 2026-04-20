@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import type { QuizState, QuizMode, Question } from '../types'
-import { QUESTIONS_PER_WEEK } from '../constants'
+import { SUBJECTS } from '../constants'
 import { QUESTIONS } from '../data/questions'
 import { ANALYTICS_QUESTIONS } from '../data/analyticsQuestions'
+import { IOT_QUESTIONS } from '../data/iotQuestions'
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -22,11 +23,14 @@ function storageKey(mode: QuizMode): string {
 }
 
 function poolForMode(mode: QuizMode): Question[] {
-  const pool = mode.subject === 'analytics' ? ANALYTICS_QUESTIONS : QUESTIONS
+  const pool = mode.subject === 'analytics' ? ANALYTICS_QUESTIONS
+             : mode.subject === 'iot'       ? IOT_QUESTIONS
+             : QUESTIONS
+  const qpw = SUBJECTS[mode.subject].questionsPerWeek
   if (mode.type === 'full') return pool
   if (mode.type === 'quick') return shuffle(pool).slice(0, mode.count)
-  const start = (mode.week - 1) * QUESTIONS_PER_WEEK
-  return pool.slice(start, start + QUESTIONS_PER_WEEK)
+  const start = (mode.week - 1) * qpw
+  return pool.slice(start, start + qpw)
 }
 
 function createFreshState(mode: QuizMode): QuizState {

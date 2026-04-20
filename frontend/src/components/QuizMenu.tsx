@@ -16,7 +16,8 @@ export function QuizMenu({ theme, activeSubject, onToggleTheme, onSelect, onBack
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const config = SUBJECTS[activeSubject]
-  const totalQuestions = config.weekCount * 10
+  const totalQuestions = config.weekCount * config.questionsPerWeek
+  const availableQuickCounts = QUICK_COUNTS.filter(c => c < totalQuestions)
 
   function handlePractice(checked: boolean) {
     setPractice(checked)
@@ -85,7 +86,7 @@ export function QuizMenu({ theme, activeSubject, onToggleTheme, onSelect, onBack
           <h2 className="menu-section-title">Quick Quiz</h2>
           <p className="menu-section-sub">Random questions from the entire question bank</p>
           <div className="mode-grid">
-            {QUICK_COUNTS.map(count => (
+            {availableQuickCounts.map(count => (
               <button
                 key={count}
                 className="mode-card mode-card-quick"

@@ -12,7 +12,7 @@ export interface QuizState {
 
 export type Theme = 'light' | 'dark'
 
-export type SubjectId = 'gender' | 'analytics'
+export type SubjectId = 'gender' | 'analytics' | 'iot'
 
 export type QuizMode =
   | { subject: SubjectId; type: 'full'; practice?: boolean }

@@ -9,6 +9,7 @@ export interface SubjectConfig {
   id: SubjectId;
   title: string;
   weekCount: number;
+  questionsPerWeek: number;
   weekLabels: Record<number, string>;
 }
 
@@ -17,6 +18,7 @@ export const SUBJECTS: Record<SubjectId, SubjectConfig> = {
     id: 'gender',
     title: 'Contextualising Gender',
     weekCount: 12,
+    questionsPerWeek: 10,
     weekLabels: {
       1: 'Simone de Beauvoir & Second Wave',
       2: 'Black Feminism & Intersectionality',
@@ -36,6 +38,7 @@ export const SUBJECTS: Record<SubjectId, SubjectConfig> = {
     id: 'analytics',
     title: 'Data Analytics',
     weekCount: 12,
+    questionsPerWeek: 10,
     weekLabels: {
       1: 'Module 1: Introduction',
       2: 'Module 2: Descriptive Analytics',
@@ -49,6 +52,18 @@ export const SUBJECTS: Record<SubjectId, SubjectConfig> = {
       10: 'Module 10: Regression',
       11: 'Module 11: Classification',
       12: 'Module 12: Clustering & Decision Trees',
+    }
+  },
+  'iot': {
+    id: 'iot',
+    title: 'Industrial IoT',
+    weekCount: 4,
+    questionsPerWeek: 15,
+    weekLabels: {
+      1: 'Sensors, Actuators & Wireless Protocols',
+      2: 'Lean Manufacturing, Industry 4.0 & Smart Factories',
+      3: 'AR/VR, CPS, Big Data & AI in Industry',
+      4: 'Cybersecurity, IIoT & Smart Sensing',
     }
   }
 }
