@@ -691,5 +691,82 @@ export const IOT_QUESTIONS: Question[] = [
     "q": "Which advantage of SDIIoT enables events to be processed in order through deterministic forwarding of traffic?",
     "o": ["Deterministic networking", "High availability", "Low-latency virtualization", "Robust security"],
     "a": "Deterministic networking"
+  },
+
+  // Week 10
+  {
+    "q": "What is the primary objective of the IETF 6TiSCH protocol in the context of IIoT?",
+    "o": ["To enable deterministic communication and efficient resource allocation", "To increase non-deterministic communication", "To replace SDN controllers entirely", "To increase jitter in the network"],
+    "a": "To enable deterministic communication and efficient resource allocation"
+  },
+  {
+    "q": "\u03bcSDN is integrated with which protocol stack?",
+    "o": ["Zigbee stack", "IPv4 stack", "Contiki IEEE 802.15.4-2015 stack", "LTE stack"],
+    "a": "Contiki IEEE 802.15.4-2015 stack"
+  },
+  {
+    "q": "Fill in the blank: The public network in SDIIoT consists of switches, routers, and ______ network.",
+    "o": ["Sensor", "Access", "Control", "Storage"],
+    "a": "Access"
+  },
+  {
+    "q": "State True or False: Trustworthy IIoT includes security, privacy, safety, reliability, and resilience.",
+    "o": ["True", "False"],
+    "a": "True"
+  },
+  {
+    "q": "Fill in the blank: Current security architectures are mostly ______-centric.",
+    "o": ["OT", "IT", "Cloud", "Device"],
+    "a": "IT"
+  },
+  {
+    "q": "Which of the following is the first step in IIoT security risk management?",
+    "o": ["Mitigating risks", "Accepting risks", "Avoiding risks", "Outsourcing risks"],
+    "a": "Avoiding risks"
+  },
+  {
+    "q": "Fill in the blank: Security of the whole IIoT system depends on deployed devices, communication security, data protection, and ______.",
+    "o": ["Network topology", "Security management", "Sensor calibration", "Hardware redundancy"],
+    "a": "Security management"
+  },
+  {
+    "q": "Fill in the blank: End device protection requires physical security, access control, identity, and ______ protection.",
+    "o": ["Application", "Network", "Cloud", "Data"],
+    "a": "Data"
+  },
+  {
+    "q": "What is the primary security requirement of IIoT systems?",
+    "o": ["Device scalability", "End-to-end security", "High bandwidth", "Low latency"],
+    "a": "End-to-end security"
+  },
+  {
+    "q": "Which feature of a smart factory enables prediction of future outcomes?",
+    "o": ["Transparent", "Connected", "Proactive", "Agile"],
+    "a": "Proactive"
+  },
+  {
+    "q": "Airbus uses which technology to visualize production processes in real time?",
+    "o": ["Augmented Reality", "Blockchain visualization", "Virtual reality only", "3D real-time visualization"],
+    "a": "3D real-time visualization"
+  },
+  {
+    "q": "What technology does Amazon use to automate product search and retrieval in its warehouse?",
+    "o": ["Automated conveyor belts", "Robotic shelves", "Augmented Reality devices", "Autonomous forklifts"],
+    "a": "Robotic shelves"
+  },
+  {
+    "q": "What is the role of the sensing layer in IoT-enabled food supply chains?",
+    "o": ["Data encryption", "Monitoring food quality using sensors", "Providing cloud analytics", "Managing business operations"],
+    "a": "Monitoring food quality using sensors"
+  },
+  {
+    "q": "What is one major benefit of supply chain transparency in the food industry?",
+    "o": ["Increased manual intervention", "Reduced food wastage", "Reduced sensor usage", "Elimination of automation"],
+    "a": "Reduced food wastage"
+  },
+  {
+    "q": "What does the \u201cFlavor Matrix\u201d by Culinary Science Industries use to enhance dishes?",
+    "o": ["Robot chefs", "Augmented Reality menus", "3D printed food", "Machine learning and data analysis of food ingredients"],
+    "a": "Machine learning and data analysis of food ingredients"
   }
 ]
