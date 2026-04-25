@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import type { QuizMode, SubjectId } from './types'
 import { SUBJECTS } from './constants'
@@ -12,6 +12,7 @@ import { ScoreBanner } from './components/ScoreBanner'
 import { QuestionCard } from './components/QuestionCard'
 import { SubmitArea } from './components/SubmitArea'
 import { ResultFooter } from './components/ResultFooter'
+import { PerfectScoreModal } from './components/PerfectScoreModal'
 
 function modeLabel(mode: QuizMode): string {
   const prefix = mode.practice ? 'Practice · ' : ''
@@ -27,9 +28,15 @@ export default function App() {
   const [activeSubject, setActiveSubject] = useState<SubjectId | null>(null)
   const [mode, setMode] = useState<QuizMode | null>(null)
   const [showConfirm, setShowConfirm] = useState(false)
+  const [showPerfect, setShowPerfect] = useState(false)
 
   const activeMode = mode ?? DEFAULT_MODE
   const quiz = useQuiz(activeMode)
+
+  const isPerfect = quiz.submitted && quiz.score === quiz.total && activeMode.subject === 'iot'
+  useEffect(() => {
+    if (isPerfect) setShowPerfect(true)
+  }, [isPerfect])
 
   const handleSubjectSelect = (chosen: SubjectId) => {
     const stalePrefix = chosen === 'gender' ? 'mooc_quiz_analytics' : 'mooc_quiz_gender';
@@ -60,6 +67,7 @@ export default function App() {
   const handleReset = () => {
     quiz.reset()
     setShowConfirm(false)
+    setShowPerfect(false)
   }
 
   const handleChangeMode = () => {
@@ -83,6 +91,14 @@ export default function App() {
         onReset={() => setShowConfirm(true)}
         onBack={handleChangeMode}
       />
+
+      {isPerfect && showPerfect && (
+        <PerfectScoreModal
+          score={quiz.score}
+          total={quiz.total}
+          onClose={() => setShowPerfect(false)}
+        />
+      )}
 
       {showConfirm && (
         <ResetModal

@@ -116,6 +116,38 @@ body { margin: 0; }
 .practice-toggle-label { font-size: 13px; font-weight: 600; }
 .practice-toggle-sub   { font-size: 10px; opacity: 0.75; }
 
+/* ── Perfect score modal ────────────────────────────────── */
+.perfect-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 340px;
+  text-align: center;
+  padding: 28px 24px;
+}
+
+.perfect-img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.perfect-score {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--q-accent);
+  margin: 0;
+}
+
+.perfect-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
 /* ── Toast ──────────────────────────────────────────────── */
 .toast {
   position: fixed;
