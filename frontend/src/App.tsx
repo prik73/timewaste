@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import type { QuizMode, SubjectId } from './types'
 import { SUBJECTS } from './constants'
@@ -33,10 +33,23 @@ export default function App() {
   const activeMode = mode ?? DEFAULT_MODE
   const quiz = useQuiz(activeMode)
 
-  const isPerfect = quiz.submitted && quiz.score === quiz.total && activeMode.subject === 'iot'
+  // Track previous mode and submitted value so we only fire the modal
+  // when submitted transitions false→true in this session, not on load from localStorage.
+  const prevModeRef = useRef(mode)
+  const prevSubmittedRef = useRef(quiz.submitted)
+  if (prevModeRef.current !== mode) {
+    prevModeRef.current = mode
+    prevSubmittedRef.current = quiz.submitted  // capture state at mode-entry time
+  }
+
   useEffect(() => {
-    if (isPerfect) setShowPerfect(true)
-  }, [isPerfect])
+    const wasSubmitted = prevSubmittedRef.current
+    prevSubmittedRef.current = quiz.submitted
+    const justFinished = !wasSubmitted && quiz.submitted
+    if (justFinished && quiz.score === quiz.total && activeMode.subject === 'iot') {
+      setShowPerfect(true)
+    }
+  }, [quiz.submitted, quiz.score, quiz.total, activeMode.subject])
 
   const handleSubjectSelect = (chosen: SubjectId) => {
     const stalePrefix = chosen === 'gender' ? 'mooc_quiz_analytics' : 'mooc_quiz_gender';
@@ -92,7 +105,7 @@ export default function App() {
         onBack={handleChangeMode}
       />
 
-      {isPerfect && showPerfect && (
+      {showPerfect && (
         <PerfectScoreModal
           score={quiz.score}
           total={quiz.total}
