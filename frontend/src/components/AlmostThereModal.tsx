@@ -27,7 +27,7 @@ export function AlmostThereModal({ score, total, onClose }: AlmostThereModalProp
         <img src={ALMOST_IMGS[idx.current]} alt="almost" className="perfect-img" />
         <p className="perfect-score" style={{ color: 'var(--q-skip)' }}>{score} / {total}</p>
         <p className="perfect-text">{ALMOST_TEXTS[idx.current]}</p>
-        <button className="btn btn-ghost" onClick={onClose}>i'll get it next time</button>
+        <button className="btn btn-ghost" onClick={onClose}>chal chal</button>
       </div>
     </div>
   )
