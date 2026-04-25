@@ -13,6 +13,7 @@ import { QuestionCard } from './components/QuestionCard'
 import { SubmitArea } from './components/SubmitArea'
 import { ResultFooter } from './components/ResultFooter'
 import { PerfectScoreModal } from './components/PerfectScoreModal'
+import { AlmostThereModal } from './components/AlmostThereModal'
 
 function modeLabel(mode: QuizMode): string {
   const prefix = mode.practice ? 'Practice · ' : ''
@@ -29,6 +30,7 @@ export default function App() {
   const [mode, setMode] = useState<QuizMode | null>(null)
   const [showConfirm, setShowConfirm] = useState(false)
   const [showPerfect, setShowPerfect] = useState(false)
+  const [showAlmost, setShowAlmost] = useState(false)
 
   const activeMode = mode ?? DEFAULT_MODE
   const quiz = useQuiz(activeMode)
@@ -46,8 +48,9 @@ export default function App() {
     const wasSubmitted = prevSubmittedRef.current
     prevSubmittedRef.current = quiz.submitted
     const justFinished = !wasSubmitted && quiz.submitted
-    if (justFinished && quiz.score === quiz.total && activeMode.subject === 'iot') {
-      setShowPerfect(true)
+    if (justFinished && activeMode.subject === 'iot') {
+      if (quiz.score === quiz.total) setShowPerfect(true)
+      else if (quiz.total - quiz.score <= 2) setShowAlmost(true)
     }
   }, [quiz.submitted, quiz.score, quiz.total, activeMode.subject])
 
@@ -81,6 +84,7 @@ export default function App() {
     quiz.reset()
     setShowConfirm(false)
     setShowPerfect(false)
+    setShowAlmost(false)
   }
 
   const handleChangeMode = () => {
@@ -110,6 +114,14 @@ export default function App() {
           score={quiz.score}
           total={quiz.total}
           onClose={() => setShowPerfect(false)}
+        />
+      )}
+
+      {showAlmost && (
+        <AlmostThereModal
+          score={quiz.score}
+          total={quiz.total}
+          onClose={() => setShowAlmost(false)}
         />
       )}
 
