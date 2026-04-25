@@ -68,6 +68,7 @@ export function useQuiz(mode: QuizMode) {
       const answers = [...s.answers]
       answers[idx] = choice
       const autoSubmit = !!mode.practice && answers.every(a => a !== null)
+      if (autoSubmit) window.scrollTo({ top: 0, behavior: 'smooth' })
       return { ...s, answers, submitted: autoSubmit || s.submitted }
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps
